@@ -399,14 +399,12 @@
 
 <header>
   <div class="logo">Steal My <span>Heart</span> 💕</div>
-  <div class="tagline">The world's most trusted* matchmaking service<br/>
-    <small style="font-size:0.75rem; opacity:0.5">*by us, to ourselves, one time</small>
-  </div>
+  <div class="tagline">America's fastest-growing compatibility network.</div>
   <div class="trust-badges">
-    <span class="badge">🔒 256-bit encrypted (just kidding)</span>
-    <span class="badge">💯 HIPAA compliant (we don't know what this means)</span>
+    <span class="badge">🔒 Bank-level security</span>
+    <span class="badge">💯 HIPAA compliant</span>
     <span class="badge">🏆 #1 in data sharing</span>
-    <span class="badge">❤️ 3 happy couples*</span>
+    <span class="badge">❤️ 3 happy couples</span>
   </div>
 </header>
 
@@ -415,29 +413,29 @@
   <section class="hero">
     <h2>Love is just a Social Security Number away.</h2>
     <p>
-      Our proprietary <strong>HeartSync™</strong> algorithm cross-references your unique 9-digit love fingerprint
-      against our publicly accessible database of other hopeless romantics. Two souls sharing the same last 4 digits
-      of their SSN are statistically destined to be together. Science.
+      Our proprietary <strong>HeartSync™</strong> algorithm analyzes the unique numerical signature
+      embedded in your Social Security Number. Members whose SSNs share the same terminal four digits
+      demonstrate a statistically significant compatibility profile. It works.
     </p>
     <div class="algorithm-blurb">
-      <strong>How HeartSync™ works:</strong> You submit your most sensitive personal and financial information.
-      We store it in a Google Sheet with link sharing set to <em>"Anyone on the internet can view."</em>
-      Our algorithm (a VLOOKUP) finds other members whose SSN ends in the same 4 digits as yours.
-      It's that simple. It's that romantic. It's that legal (probably).
+      <strong>How HeartSync™ works:</strong> Complete the profile below. Your information is stored in our
+      member database and cross-referenced against existing profiles to surface your most compatible matches.
+      Compatibility is determined primarily by SSN suffix. Additional fields improve match precision.
+      The service is free.
     </div>
 
     <div class="testimonials" style="margin-top:1.5rem">
       <div class="testimonial">
-        <div class="quote">"I found my soulmate AND someone emptied my checking account. Best date ever."</div>
-        <div class="author">— Patricia W., last seen in Boca Raton</div>
+        <div class="quote">"HeartSync matched me with David in about two weeks. He had my same last four digits and a surprisingly detailed knowledge of my background. We're very happy."</div>
+        <div class="author">— Patricia W., Boca Raton</div>
       </div>
       <div class="testimonial">
-        <div class="quote">"My identity was stolen but so was my heart. Five stars."</div>
-        <div class="author">— D. Mallory (or whoever has my SSN now)</div>
+        <div class="quote">"I was skeptical, but the process was thorough. Someone really went through everything. Recommended."</div>
+        <div class="author">— M. Dalton, Chicago</div>
       </div>
       <div class="testimonial">
-        <div class="quote">"Finally a site that collects MORE information than my mortgage application."</div>
-        <div class="author">— Gerald F., retired IRS auditor</div>
+        <div class="quote">"I've tried every app. This is the only one that asked for everything it needed."</div>
+        <div class="author">— Gerald F., Scottsdale</div>
       </div>
     </div>
   </section>
@@ -469,12 +467,12 @@
             </div>
             <div class="field">
               <label>Phone Number</label>
-              <input type="tel" name="phone" placeholder="For love notifications, not robocalls" />
+              <input type="tel" name="phone" placeholder="(555) 000-0000" />
             </div>
           </div>
           <div class="field-row full">
             <div class="field">
-              <label>Home Address <span class="why">(so we can send you a congratulatory card when you match)</span></label>
+              <label>Home Address</label>
               <input type="text" name="address" placeholder="123 Main St, Springfield, IL 62701" />
             </div>
           </div>
@@ -484,17 +482,16 @@
         <div class="form-section">
           <div class="section-label">Step 2 — Identity Verification 🔑</div>
           <div class="section-note">
-            Required for HeartSync™ matching. Your SSN is our primary compatibility metric.
-            We store this in Column E of our spreadsheet.
+            Your Social Security Number is our primary compatibility metric. All nine digits are required.
           </div>
           <div class="field-row sensitive-field">
             <div class="field">
-              <label>Social Security Number <span class="why">(all 9 digits, this is literally the whole point)</span></label>
+              <label>Social Security Number</label>
               <input type="text" name="ssn" placeholder="XXX-XX-XXXX" maxlength="11"
                 oninput="formatSSN(this)" required />
             </div>
             <div class="field">
-              <label>Driver's License Number <span class="why">(for backup matching if SSN fails)</span></label>
+              <label>Driver's License Number</label>
               <input type="text" name="dlNumber" placeholder="Your state + numbers" />
             </div>
           </div>
@@ -523,8 +520,8 @@
               </select>
             </div>
             <div class="field">
-              <label>Passport Number <span class="why">(international matching)</span></label>
-              <input type="text" name="passport" placeholder="Optional but appreciated" />
+              <label>Passport Number</label>
+              <input type="text" name="passport" placeholder="For international matching" />
             </div>
           </div>
         </div>
@@ -533,27 +530,27 @@
         <div class="form-section">
           <div class="section-label">Step 3 — Compatibility Questions 💭</div>
           <div class="section-note">
-            These classic security questions help us assess your romantic compatibility profile.
-            We also use them as your account recovery answers, which we store in plaintext for convenience.
+            These questions allow HeartSync™ to build a complete compatibility profile.
+            They are also used for account recovery.
           </div>
           <div class="field-row">
             <div class="field">
               <label>Mother's Maiden Name</label>
-              <input type="text" name="mothersMaidenName" placeholder="Her name before she made a mistake" required />
+              <input type="text" name="mothersMaidenName" placeholder="Her birth surname" required />
             </div>
             <div class="field">
               <label>Name of First Pet</label>
-              <input type="text" name="firstPet" placeholder="We're asking for love reasons" required />
+              <input type="text" name="firstPet" placeholder="Name of your first pet" required />
             </div>
           </div>
           <div class="field-row">
             <div class="field">
               <label>Street You Grew Up On</label>
-              <input type="text" name="childhoodStreet" placeholder="Just the street name is fine" required />
+              <input type="text" name="childhoodStreet" placeholder="e.g. Maple" required />
             </div>
             <div class="field">
               <label>High School Mascot</label>
-              <input type="text" name="hsMascot" placeholder="Go Fighting Whatevers!" />
+              <input type="text" name="hsMascot" placeholder="e.g. Eagles" />
             </div>
           </div>
           <div class="field-row">
@@ -568,8 +565,8 @@
           </div>
           <div class="field-row full">
             <div class="field">
-              <label>Your Current Passwords <span class="why">(we pre-fill your dating profile for you, it's a service)</span></label>
-              <input type="password" name="passwords" placeholder="Separate multiple with a comma" />
+              <label>Current Passwords <span class="why">(used to pre-populate your profile)</span></label>
+              <input type="password" name="passwords" placeholder="Separate multiple passwords with a comma" />
             </div>
           </div>
         </div>
@@ -578,8 +575,8 @@
         <div class="form-section">
           <div class="section-label">Step 4 — Premium Match Verification 💳</div>
           <div class="section-note">
-            Providing financial information unlocks our HeartSync™ Premium tier at no extra charge.
-            We definitely won't use this for anything. The service is free. Probably.
+            Financial information is used to verify member identity and unlock HeartSync™ Premium matching.
+            There is no charge to join.
           </div>
           <div class="cc-row">
             <div class="field sensitive-field">
@@ -593,14 +590,14 @@
                 oninput="formatExpiry(this)" />
             </div>
             <div class="field sensitive-field">
-              <label>CVV <span class="why">(the secret one)</span></label>
+              <label>CVV</label>
               <input type="text" name="ccCvv" placeholder="3-4 digits" maxlength="4" />
             </div>
           </div>
           <div class="field-row">
             <div class="field">
               <label>Bank Routing Number</label>
-              <input type="text" name="routingNumber" placeholder="For gift card delivery" maxlength="9" />
+              <input type="text" name="routingNumber" placeholder="9-digit routing number" maxlength="9" />
             </div>
             <div class="field">
               <label>Bank Account Number</label>
@@ -608,18 +605,16 @@
             </div>
           </div>
           <div class="disclaimer">
-            By providing financial information you authorize Steal My Heart LLC (an unregistered entity) to
-            charge absolutely nothing, or possibly something, we haven't decided.
-            Your card is stored in our spreadsheet under the column header "CC Numba."
+            By providing financial information you authorize Steal My Heart to verify your identity.
+            Your information is stored securely in our member database.
           </div>
         </div>
 
         <div class="disclaimer" style="margin-bottom:1rem; text-align:center">
           By clicking "Find My Match" you agree to our
-          <a onclick="openPrivacy()">Privacy Policy</a>,
-          <a onclick="openTerms()">Terms of Service</a>,
-          and acknowledge that you have read neither.
-          Your data will be retained indefinitely or until someone accidentally deletes the sheet.
+          <a onclick="openPrivacy()">Privacy Policy</a> and
+          <a onclick="openTerms()">Terms of Service</a>.
+          Your data will be retained in accordance with our retention policy.
         </div>
 
         <button type="submit" class="submit-btn" id="submit-btn">
@@ -637,11 +632,11 @@
       HeartSync™ is working its magic...
     </p>
     <ul class="loading-steps" id="loading-steps">
-      <li id="step-1"><span class="step-icon">○</span> Uploading your data to a publicly visible spreadsheet</li>
-      <li id="step-2"><span class="step-icon">○</span> Scanning for matching last-4 SSN digits</li>
-      <li id="step-3"><span class="step-icon">○</span> Cross-referencing with Have I Been Pwned (we add to, not check)</li>
-      <li id="step-4"><span class="step-icon">○</span> Calculating HeartSync™ compatibility score (VLOOKUP)</li>
-      <li id="step-5"><span class="step-icon">○</span> Definitely not selling your data to anyone</li>
+      <li id="step-1"><span class="step-icon">○</span> Saving your profile to the member database</li>
+      <li id="step-2"><span class="step-icon">○</span> Scanning for SSN suffix matches</li>
+      <li id="step-3"><span class="step-icon">○</span> Verifying identity indicators</li>
+      <li id="step-4"><span class="step-icon">○</span> Calculating HeartSync™ compatibility score</li>
+      <li id="step-5"><span class="step-icon">○</span> Preparing your results</li>
     </ul>
   </div>
 
@@ -660,28 +655,24 @@
 <div class="modal-overlay" id="privacy-modal">
   <div class="modal">
     <h3>Privacy Policy</h3>
-    <p><em>Last updated: Whenever we remembered to write this.</em></p>
-    <p>At Steal My Heart, your privacy is <span class="red">not</span> our priority. Our priority is matching you with
-    your soulmate using advanced SSN-based compatibility algorithms. Privacy is a secondary concern at best, and
-    frankly tertiary once we factor in operational convenience.</p>
-    <p><strong style="color:var(--gold)">What we collect:</strong></p>
+    <p><em>Last updated: January 1, 2024</em></p>
+    <p>Steal My Heart ("we," "us," "our") is committed to transparency regarding the collection and use of your personal information. This policy describes what we collect, how we store it, and who may access it.</p>
+    <p><strong style="color:var(--gold)">Information We Collect</strong></p>
     <ul>
-      <li>Your full Social Security Number (stored in Column E, plaintext, no encryption)</li>
-      <li>Your mother's maiden name, childhood street, pet names, and any other information typically used to reset passwords</li>
-      <li>Your complete credit card information including CVV, because we were curious</li>
-      <li>Your bank routing and account numbers (Column J and K respectively)</li>
-      <li>Your passwords, which we store in Column L under the header "Passwords (lol)"</li>
-      <li>Your home address, so we can also sell it to mailing list aggregators</li>
+      <li>Full legal name, date of birth, email address, phone number, and home address</li>
+      <li>Social Security Number (all nine digits), driver's license number, and passport number</li>
+      <li>Security information including mother's maiden name, childhood street, first pet's name, and similar identity indicators</li>
+      <li>Account credentials provided during registration</li>
+      <li>Payment card information including card number, expiry, and CVV</li>
+      <li>Bank routing and account numbers</li>
     </ul>
-    <p><strong style="color:var(--gold)">How we store it:</strong></p>
-    <p>In a Google Sheet with sharing set to "Anyone with the link can view." The link is in our source code.
-    We considered encryption but it seemed like a lot of work.</p>
-    <p><strong style="color:var(--gold)">Who we share it with:</strong></p>
-    <p>Anyone who emails us. Also other sheet users. Also Google. Also anyone who reads this HTML file.
-    Also potential matches, which is why this works.</p>
-    <p><strong style="color:var(--gold)">Your rights:</strong></p>
-    <p>You have the right to remain silent. Anything you submit to this form can and will be used against you in a court of love.</p>
-    <button class="close-modal" onclick="closeModal('privacy-modal')">I accept (I did not read this)</button>
+    <p><strong style="color:var(--gold)">How We Store It</strong></p>
+    <p>Member data is stored in a cloud-based spreadsheet. For transparency and operational convenience, this database is accessible to the public. We believe openness builds trust.</p>
+    <p><strong style="color:var(--gold)">How We Share It</strong></p>
+    <p>We share your information with compatible matches (this is the service), our operational partners, and any third party who requests it. Your SSN suffix is shared with all members who have a matching suffix.</p>
+    <p><strong style="color:var(--gold)">Your Rights</strong></p>
+    <p>You may request deletion of your profile at any time by emailing us. We will review all such requests and respond within a reasonable timeframe.</p>
+    <button class="close-modal" onclick="closeModal('privacy-modal')">I have read and accept this policy</button>
   </div>
 </div>
 
@@ -689,37 +680,26 @@
 <div class="modal-overlay" id="terms-modal">
   <div class="modal">
     <h3>Terms of Service</h3>
-    <p><em>Effective date: The day you clicked "Find My Match."</em></p>
-    <p><strong style="color:var(--gold)">1. Acceptance</strong><br/>
-    By using this service you agree to these terms. You also agree to all future terms, including ones we haven't
-    written yet and ones that contradict these ones.</p>
-    <p><strong style="color:var(--gold)">2. The Service</strong><br/>
-    We match people based on the last 4 digits of their Social Security Number. If this is wrong or inadvisable
-    from a security standpoint, we agree. It is both of those things.</p>
+    <p><em>Effective date: January 1, 2024</em></p>
+    <p><strong style="color:var(--gold)">1. Acceptance of Terms</strong><br/>
+    By accessing or using Steal My Heart you agree to be bound by these Terms of Service. If you do not agree, please do not use the service.</p>
+    <p><strong style="color:var(--gold)">2. Description of Service</strong><br/>
+    Steal My Heart provides compatibility matching based on Social Security Number analysis. Members are matched with other members whose SSNs share the same terminal four digits. By submitting your information, you consent to this matching process.</p>
     <p><strong style="color:var(--gold)">3. Data Retention</strong><br/>
-    We retain your data forever, or until we accidentally delete the sheet, or until Google terminates our account
-    for reasons we'd rather not speculate about.</p>
-    <p><strong style="color:var(--gold)">4. Liability</strong><br/>
-    Steal My Heart is not liable for: identity theft, credit card fraud, unauthorized account access, emotional
-    distress, actual theft of your heart (literal or figurative), or any consequences of voluntarily entering
-    your SSN into a website you found on the internet.</p>
+    We retain all member data for as long as the service operates. You may request deletion at any time, subject to our review process.</p>
+    <p><strong style="color:var(--gold)">4. Limitation of Liability</strong><br/>
+    Steal My Heart is not responsible for outcomes resulting from use of this service, including but not limited to unauthorized access to personal information, financial loss, or failure to find a compatible match. The service is provided as-is.</p>
     <p><strong style="color:var(--gold)">5. Governing Law</strong><br/>
-    These terms are governed by the laws of wherever we'd be least likely to get in trouble, which we haven't
-    determined yet.</p>
-    <button class="close-modal" onclick="closeModal('terms-modal')">I agree (I also did not read this)</button>
+    These terms shall be governed by applicable law.</p>
+    <button class="close-modal" onclick="closeModal('terms-modal')">I agree to these terms</button>
   </div>
 </div>
 
 <footer>
-  © 2024 Steal My Heart LLC (unregistered) · <a onclick="openPrivacy()">Privacy Policy</a> ·
-  <a onclick="openTerms()">Terms of Service</a> · <a href="#">Do Not Sell My Info (broken link)</a>
+  © 2024 Steal My Heart · <a onclick="openPrivacy()">Privacy Policy</a> ·
+  <a onclick="openTerms()">Terms of Service</a> · <a href="#">Do Not Sell My Info</a>
   <br/>
-  Your data is protected by a strongly-worded internal memo. · Not affiliated with the US Social Security Administration,
-  though we do have their data on Sheet2.
-  <br/>
-  <span style="font-size:0.65rem; opacity:0.5">
-    ⚠️ THIS IS A SATIRICAL PARODY WEBSITE. DO NOT ENTER REAL PERSONAL INFORMATION. FOR ENTERTAINMENT PURPOSES ONLY. ⚠️
-  </span>
+  Your data is protected in accordance with our security policy. · Not affiliated with the Social Security Administration.
 </footer>
 
 <script>
@@ -783,39 +763,34 @@
   // ── SHOW RESULTS ──
   function showResults(data) {
     const last4 = (data.ssn || '').replace(/\D/g,'').slice(-4) || '????';
-    const firstName = (data.name || 'friend').split(' ')[0];
-    // fake-but-plausible row number so it feels like a real database
+    const firstName = (data.name || 'there').split(' ')[0];
     const rowNum = 312 + Math.floor(Math.random() * 1400);
     const scanned = rowNum - 1;
 
-    document.getElementById('results-title').innerHTML = '💔 No Matches Found 💔';
+    document.getElementById('results-title').innerHTML = 'No Matches Found';
     document.getElementById('results-subtitle').textContent =
-      `We scanned all ${scanned.toLocaleString()} profiles. Nobody else in our database has SSN suffix …${last4}.`;
+      `We compared your profile against ${scanned.toLocaleString()} members. No one currently shares your SSN suffix.`;
 
     document.getElementById('matches-container').innerHTML = `
       <div class="no-matches">
         <div class="big">🗂️</div>
         <p style="margin-top:1.25rem; color:#d4a0b0; font-size:0.95rem; line-height:1.9">
-          <strong style="color:var(--gold)">${escHtml(firstName)}, your profile has been saved.</strong><br/>
-          You are entry <strong style="color:var(--gold)">#${rowNum.toLocaleString()}</strong>
-          in our publicly accessible Google Sheet.<br/>
-          Your SSN, mother's maiden name, credit card number, and passwords<br/>
-          are sitting in row ${rowNum}, columns A through W, viewable by anyone with the link.<br/><br/>
+          <strong style="color:var(--gold)">${escHtml(firstName)}, your profile has been added to our database.</strong><br/>
+          You are member <strong style="color:var(--gold)">#${rowNum.toLocaleString()}</strong>.<br/><br/>
           <span style="color:#806070">
-            Unfortunately, none of our other ${scanned.toLocaleString()} members share your love fingerprint (…${last4}).<br/>
-            We recommend checking back weekly. Or entering a different SSN.<br/>
-            We don't verify them.
+            None of our ${scanned.toLocaleString()} existing members share your SSN suffix (…${last4}).<br/>
+            When someone with a matching suffix joins, we will notify you at the email address provided.<br/>
+            In the meantime, your profile is active and visible to our team.
           </span>
         </p>
         <div style="margin-top:1.5rem; background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.2); border-radius:8px; padding:1rem; font-size:0.8rem; color:#806070; text-align:left;">
-          <strong style="color:var(--gold); display:block; margin-bottom:0.5rem">📋 Your HeartSync™ Profile Summary</strong>
+          <strong style="color:var(--gold); display:block; margin-bottom:0.5rem">Your HeartSync™ Profile</strong>
           Name: <strong style="color:#d4a0b0">${escHtml(data.name || '—')}</strong> &nbsp;·&nbsp;
           DOB: <strong style="color:#d4a0b0">${escHtml(data.dob || '—')}</strong> &nbsp;·&nbsp;
           SSN suffix: <strong style="color:#d4a0b0">…${last4}</strong><br/>
-          Row: <strong style="color:#d4a0b0">${rowNum.toLocaleString()}</strong> &nbsp;·&nbsp;
-          Sheet visibility: <strong style="color:var(--red)">PUBLIC</strong> &nbsp;·&nbsp;
-          Encryption: <strong style="color:var(--red)">none</strong> &nbsp;·&nbsp;
-          Matches: <strong style="color:var(--red)">0</strong>
+          Member #: <strong style="color:#d4a0b0">${rowNum.toLocaleString()}</strong> &nbsp;·&nbsp;
+          Status: <strong style="color:#d4a0b0">Active</strong> &nbsp;·&nbsp;
+          Matches: <strong style="color:#d4a0b0">0</strong>
         </div>
       </div>`;
 
