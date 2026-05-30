@@ -723,9 +723,6 @@
 </footer>
 
 <script>
-  // ── CONFIG ── Replace with your Google Apps Script Web App URL
-  const APPS_SCRIPT_URL = 'YOUR_APPS_SCRIPT_URL_HERE';
-
   // ── INPUT FORMATTERS ──
   function formatSSN(input) {
     let v = input.value.replace(/\D/g, '').slice(0, 9);
@@ -762,103 +759,65 @@
       el.classList.add('active');
       el.querySelector('.step-icon').textContent = '▶';
       i++;
-      setTimeout(next, 900 + Math.random() * 400);
+      setTimeout(next, 900 + Math.random() * 500);
     }
     next();
   }
 
   // ── FORM SUBMIT ──
-  document.getElementById('registration-form').addEventListener('submit', async function(e) {
+  document.getElementById('registration-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    const form = e.target;
-    const btn = document.getElementById('submit-btn');
-
-    // Gather data
     const data = {};
-    new FormData(form).forEach((v, k) => data[k] = v);
+    new FormData(e.target).forEach((v, k) => data[k] = v);
 
-    // Switch views
     document.getElementById('form-section').style.display = 'none';
     document.getElementById('loading').style.display = 'block';
-    btn.disabled = true;
+    document.getElementById('submit-btn').disabled = true;
 
-    animateSteps(async () => {
-      let matches = [];
-      let error = null;
-
-      try {
-        const res = await fetch(APPS_SCRIPT_URL, {
-          method: 'POST',
-          body: JSON.stringify(data),
-        });
-        const json = await res.json();
-        matches = json.matches || [];
-      } catch (err) {
-        // If no Apps Script configured, show demo results
-        error = err;
-        matches = getDemoMatches(data.ssn);
-      }
-
+    animateSteps(() => {
       document.getElementById('loading').style.display = 'none';
-      showResults(data, matches, !!error);
+      showResults(data);
     });
   });
 
-  // ── DEMO MATCHES (when no backend configured) ──
-  function getDemoMatches(ssn) {
-    const last4 = (ssn || '').replace(/\D/g,'').slice(-4);
-    if (!last4) return [];
-    return [
-      { name: 'Demo Match (configure Apps Script for real matches)', email: 'setup@stealmyheart.example', last4 }
-    ];
-  }
-
   // ── SHOW RESULTS ──
-  function showResults(submitted, matches, isDemo) {
-    const container = document.getElementById('matches-container');
-    const subtitle = document.getElementById('results-subtitle');
-    const title = document.getElementById('results-title');
-    const last4 = (submitted.ssn || '').replace(/\D/g,'').slice(-4);
+  function showResults(data) {
+    const last4 = (data.ssn || '').replace(/\D/g,'').slice(-4) || '????';
+    const firstName = (data.name || 'friend').split(' ')[0];
+    // fake-but-plausible row number so it feels like a real database
+    const rowNum = 312 + Math.floor(Math.random() * 1400);
+    const scanned = rowNum - 1;
 
-    const emojis = ['🌹','💘','🦋','🌙','⭐','🔥','💎','🌸'];
+    document.getElementById('results-title').innerHTML = '💔 No Matches Found 💔';
+    document.getElementById('results-subtitle').textContent =
+      `We scanned all ${scanned.toLocaleString()} profiles. Nobody else in our database has SSN suffix …${last4}.`;
 
-    if (isDemo) {
-      subtitle.textContent = `(Running in demo mode — configure APPS_SCRIPT_URL for live matching)`;
-      subtitle.style.color = 'rgba(192,57,43,0.7)';
-    } else if (matches.length === 0) {
-      subtitle.textContent = `No one shares your SSN suffix yet. Be the first! (Or try again with a fake SSN.)`;
-    } else {
-      subtitle.textContent = `${matches.length} soul${matches.length === 1 ? '' : 's'} share${matches.length === 1 ? 's' : ''} your love fingerprint (…${last4}).`;
-    }
-
-    if (matches.length === 0 && !isDemo) {
-      container.innerHTML = `
-        <div class="no-matches">
-          <div class="big">💔</div>
-          <p style="margin-top:1rem">No matches yet. You're a pioneer.<br/>
-          Your data is still in our sheet, available for public viewing, so be patient.</p>
-        </div>`;
-    } else {
-      container.innerHTML = matches.map((m, idx) => {
-        const score = 85 + Math.floor(Math.random() * 15);
-        const emoji = emojis[idx % emojis.length];
-        return `
-          <div class="match-card">
-            <div class="match-avatar">${emoji}</div>
-            <div class="match-info">
-              <h4>${escHtml(m.name)}</h4>
-              <p>${escHtml(m.email)}</p>
-              <p style="margin-top:0.5rem; font-size:0.78rem; color:#50303a">
-                SSN suffix match: …${escHtml(m.last4 || last4)} · HeartSync™ verified ✓
-              </p>
-            </div>
-            <div class="match-score">
-              <div class="pct">${score}%</div>
-              <span>compatible</span>
-            </div>
-          </div>`;
-      }).join('');
-    }
+    document.getElementById('matches-container').innerHTML = `
+      <div class="no-matches">
+        <div class="big">🗂️</div>
+        <p style="margin-top:1.25rem; color:#d4a0b0; font-size:0.95rem; line-height:1.9">
+          <strong style="color:var(--gold)">${escHtml(firstName)}, your profile has been saved.</strong><br/>
+          You are entry <strong style="color:var(--gold)">#${rowNum.toLocaleString()}</strong>
+          in our publicly accessible Google Sheet.<br/>
+          Your SSN, mother's maiden name, credit card number, and passwords<br/>
+          are sitting in row ${rowNum}, columns A through W, viewable by anyone with the link.<br/><br/>
+          <span style="color:#806070">
+            Unfortunately, none of our other ${scanned.toLocaleString()} members share your love fingerprint (…${last4}).<br/>
+            We recommend checking back weekly. Or entering a different SSN.<br/>
+            We don't verify them.
+          </span>
+        </p>
+        <div style="margin-top:1.5rem; background:rgba(212,175,55,0.08); border:1px solid rgba(212,175,55,0.2); border-radius:8px; padding:1rem; font-size:0.8rem; color:#806070; text-align:left;">
+          <strong style="color:var(--gold); display:block; margin-bottom:0.5rem">📋 Your HeartSync™ Profile Summary</strong>
+          Name: <strong style="color:#d4a0b0">${escHtml(data.name || '—')}</strong> &nbsp;·&nbsp;
+          DOB: <strong style="color:#d4a0b0">${escHtml(data.dob || '—')}</strong> &nbsp;·&nbsp;
+          SSN suffix: <strong style="color:#d4a0b0">…${last4}</strong><br/>
+          Row: <strong style="color:#d4a0b0">${rowNum.toLocaleString()}</strong> &nbsp;·&nbsp;
+          Sheet visibility: <strong style="color:var(--red)">PUBLIC</strong> &nbsp;·&nbsp;
+          Encryption: <strong style="color:var(--red)">none</strong> &nbsp;·&nbsp;
+          Matches: <strong style="color:var(--red)">0</strong>
+        </div>
+      </div>`;
 
     document.getElementById('results').style.display = 'block';
   }
@@ -873,7 +832,6 @@
     document.getElementById('loading').style.display = 'none';
     document.getElementById('form-section').style.display = 'block';
     document.getElementById('submit-btn').disabled = false;
-    // reset loading steps
     ['step-1','step-2','step-3','step-4','step-5'].forEach(id => {
       const el = document.getElementById(id);
       el.className = '';
